@@ -1,12 +1,12 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/cat-vrs/1.x/profiles/cat-vrs-profiles-source.yaml"
-title: GA4GH-Cat-VRS-Definitions
+$id: "https://w3id.org/ga4gh/schema/cat-vrs/1.x/cat-vrs-recipes-source.yaml"
+title: GA4GH-Cat-VRS-Recipe-Definitions
 type: object
 
 imports:
-  gks.core-im: ../../core-im/core-im-source.yaml
-  vrs: ../../vrs/vrs-source.yaml
-  cat.core: ../core/cat-vrs-core-source.yaml
+  gks.core-im: ../gks-core/gks-core-source.yaml
+  vrs: ../vrs/vrs-source.yaml
+  cat-vrs: ./cat-vrs-source.yaml
 
 $defs:
   ProteinSequenceConsequenceProperties:
@@ -18,7 +18,7 @@ $defs:
       constraints:
         contains:
           allOf:
-            - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/DefiningContextConstraint"
+            - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
             - type: object
               properties:
                 relations:
@@ -37,7 +37,7 @@ $defs:
       that is representative of a collection of congruent Protein Alleles that share the same altered codon(s).
     allOf:
       - $ref: "#/$defs/ProteinSequenceConsequenceProperties"
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/CategoricalVariant"
+      - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
 
   CanonicalAlleleProperties:
     type: object
@@ -48,7 +48,7 @@ $defs:
       constraints:
         contains:
           allOf:
-            - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/DefiningContextConstraint"
+            - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
             - type: object
               properties:
                 relations:
@@ -71,7 +71,7 @@ $defs:
       across different genome assemblies and associated cDNA transcript representations.
     allOf:
       - $ref: "#/$defs/CanonicalAlleleProperties"
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/CategoricalVariant"
+      - $ref: "/ga4gh/schema/cat-vrs/1.x/core/CategoricalVariant"
 
   CategoricalCnvProperties:
     type: object
@@ -83,7 +83,7 @@ $defs:
         allOf:
           - contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/DefiningContextConstraint"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
                 - type: object
                   properties:
                     relations:
@@ -91,8 +91,8 @@ $defs:
                         const: sequence_liftover
           - contains:
               anyOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/CopyCountConstraint"
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/CopyChangeConstraint"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
     required: 
       - constraints
 
@@ -103,4 +103,4 @@ $defs:
       A representation of the constraints for matching knowledge about CNVs.
     allOf:
       - $ref: "#/$defs/CategoricalCnvProperties"
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/core/json/CategoricalVariant"
+      - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"

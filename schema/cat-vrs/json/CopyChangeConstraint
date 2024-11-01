@@ -1,6 +1,6 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/core/json/CopyChangeConstraint",
+   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint",
    "title": "CopyChangeConstraint",
    "type": "object",
    "maturity": "draft",
@@ -13,7 +13,7 @@
          "description": "MUST be \"CopyChangeConstraint\""
       },
       "copyChange": {
-         "$ref": "/ga4gh/schema/gks-common/1.x/core-im/json/Coding",
+         "$ref": "/ga4gh/schema/gks-core/1.x/json/Coding",
          "items": {
             "properties": {
                "code": {

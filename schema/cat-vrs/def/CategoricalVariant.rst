@@ -1,10 +1,16 @@
+
+.. warning:: This data class is at a **draft** maturity level and may change
+    significantly in future releases. Maturity levels are described in 
+    the :ref:`maturity-model`.
+                      
+                    
 **Computational Definition**
 
 A representation of a categorically-defined domain for variation, in which individual contextual variation instances may be members of the domain.
 
 **Information Model**
 
-Some CategoricalVariant attributes are inherited from :ref:`gks.core-im:DomainEntity`.
+Some CategoricalVariant attributes are inherited from :ref:`gks-core:DomainEntity`.
 
 .. list-table::
    :class: clean-wrap

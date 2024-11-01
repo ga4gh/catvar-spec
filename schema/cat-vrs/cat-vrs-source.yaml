@@ -1,12 +1,12 @@
 $schema: "https://json-schema.org/draft/2020-12/schema"
-$id: "https://w3id.org/ga4gh/schema/cat-vrs/1.x/core/cat-vrs-core-source.yaml"
+$id: "https://w3id.org/ga4gh/schema/cat-vrs/1.x/cat-vrs-source.yaml"
 title: GA4GH-Cat-VRS-Definitions
 type: object
 strict: true
 
 imports:
-  gks.core-im: ../../core-im/core-im-source.yaml
-  vrs: ../../vrs/vrs-source.yaml
+  gks-core: ../gks-core/gks-core-source.yaml
+  vrs: ../vrs/vrs-source.yaml
 
 $defs:
 
@@ -16,7 +16,7 @@ $defs:
 
   CategoricalVariant:
     type: object
-    inherits: gks.core-im:DomainEntity
+    inherits: gks-core:DomainEntity
     maturity: draft
     description: >-
       A representation of a categorically-defined domain for variation, in which individual
@@ -36,7 +36,7 @@ $defs:
         items:
           oneOf:
             - $ref: /ga4gh/schema/vrs/2.x/json/Variation
-            - $ref: /ga4gh/schema/gks-common/1.x/core-im/json/IRI
+            - $ref: /ga4gh/schema/gks-core/1.x/gks-core/json/IRI
       constraints:
         type: array
         ordered: false
@@ -78,7 +78,7 @@ $defs:
         oneOf:
           - $ref: /ga4gh/schema/vrs/2.x/json/Variation
           - $ref: /ga4gh/schema/vrs/2.x/json/Location
-          - $ref: /ga4gh/schema/gks-common/1.x/core-im/json/IRI
+          - $ref: /ga4gh/schema/gks-core/1.x/json/IRI
       relations:
         type: array
         ordered: false
@@ -129,7 +129,7 @@ $defs:
         default: CopyChangeConstraint
         description: 'MUST be "CopyChangeConstraint"'
       copyChange:
-        $ref: /ga4gh/schema/gks-common/1.x/core-im/json/Coding
+        $ref: /ga4gh/schema/gks-core/1.x/json/Coding
         items:
           properties:
             code:
