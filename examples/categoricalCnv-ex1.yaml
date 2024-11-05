@@ -4,8 +4,8 @@ label: GRCh38/hg38 7p22.1(chr7:5905831-6014161)x3
 constraints:
   - type: CopyCountConstraint
     copies: 3
-  - type: DefiningContextConstraint
-    definingContext:
+  - type: DefiningLocationContext
+    location:
       type: SequenceLocation
       start: [null, 5945462]
       end: [6053792, null]
@@ -14,6 +14,9 @@ constraints:
         type: SequenceReference
         refgetAccession: SQ.Ya6Rs7DHhDeg7YaOSg1EoNi3U_nQ9SvO
         residueAlphabet: na
+    relations:
+      - liftover_to
+    matchCharacteristic: exact
 extensions: 
   - name: vrs processing errors
     value: "NC_000007.14:g.(?_5905831)_(6014161_?)dup: char 26: expected one of '=', 'con', 'copy', 'del', 'dup', 'ins', or 'inv'"

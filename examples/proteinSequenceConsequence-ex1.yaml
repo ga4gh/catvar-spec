@@ -11,8 +11,8 @@ description: >-
   treating patients that failed to respond to earlier generation TKI therapies.
 label: EGFR L858R
 constraints:
-  - type: "DefiningContextConstraint"
-    definingContext: vrs.json#/ga4gh:VA.kgjrhgf84CEndyLjKdAO0RxN-e3pJjxA
+  - type: "DefiningAlleleContext"
+    allele: vrs.json#/ga4gh:VA.kgjrhgf84CEndyLjKdAO0RxN-e3pJjxA
 members:
   - vrs.json#/ga4gh:VA.7jX7fHgVEqx4C4jMRyZOH0ZBHnLn7_gJ
   - vrs.json#/ga4gh:VA.3_FsKSUHEdurPIw5gqpw6g0_Ga0TEXQh

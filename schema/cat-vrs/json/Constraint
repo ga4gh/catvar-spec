@@ -13,7 +13,10 @@
          "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
       },
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
+      },
+      {
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
       }
    ]
 }
