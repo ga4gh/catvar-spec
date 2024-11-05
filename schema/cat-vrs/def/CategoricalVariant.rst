@@ -1,12 +1,11 @@
 
-.. warning:: This data class is at a **draft** maturity level and may change
-    significantly in future releases. Maturity levels are described in 
-    the :ref:`maturity-model`.
+.. note:: This data class is at a **trial use** maturity level and may change
+    in future releases. Maturity levels are described in the :ref:`maturity-model`.
                       
                     
 **Computational Definition**
 
-A representation of a categorically-defined domain for variation, in which individual contextual variation instances may be members of the domain.
+A representation of a categorically-defined domain for variation, in which individual Constraintual variation instances may be members of the domain.
 
 **Information Model**
 
@@ -49,7 +48,7 @@ Some CategoricalVariant attributes are inherited from :ref:`gks-core:Entity`.
    *  - members
       - :ref:`Variation` | :ref:`IRI`
       - 0..m
-      - A non-exhaustive list of VRS variation contexts that satisfy the constraints of this categorical variant.
+      - A non-exhaustive list of VRS variation Constraints that satisfy the constraints of this categorical variant.
    *  - constraints
       - :ref:`Constraint`
       - 0..m

@@ -3,8 +3,8 @@
    "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant",
    "title": "CategoricalVariant",
    "type": "object",
-   "maturity": "draft",
-   "description": "A representation of a categorically-defined domain for variation, in which individual contextual variation instances may be members of the domain.",
+   "maturity": "trial use",
+   "description": "A representation of a categorically-defined domain for variation, in which individual Constraintual variation instances may be members of the domain.",
    "properties": {
       "id": {
          "type": "string",
@@ -46,7 +46,7 @@
       "members": {
          "type": "array",
          "ordered": false,
-         "description": "A non-exhaustive list of VRS variation contexts that satisfy the constraints of this categorical variant.",
+         "description": "A non-exhaustive list of VRS variation Constraints that satisfy the constraints of this categorical variant.",
          "items": {
             "oneOf": [
                {
@@ -64,16 +64,13 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
                },
                {
-                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
                },
                {
-                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
-               },
-               {
-                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
                }
             ]
          }

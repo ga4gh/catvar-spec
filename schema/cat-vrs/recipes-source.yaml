@@ -22,7 +22,7 @@ $defs:
           constraints:
             contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
                 - type: object
                   properties:
                     relations:
@@ -46,7 +46,7 @@ $defs:
           constraints:
             contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
                 - type: object
                   properties:
                     relations:
@@ -68,7 +68,7 @@ $defs:
             allOf:
               - contains:
                   allOf:
-                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
                     - type: object
                       properties:
                         relations:
@@ -76,5 +76,4 @@ $defs:
                             const: liftover_to
               - contains:
                   anyOf:
-                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
-                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"

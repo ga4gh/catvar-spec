@@ -3,20 +3,17 @@
    "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/Constraint",
    "title": "Constraint",
    "type": "object",
-   "maturity": "draft",
+   "maturity": "trial use",
    "description": "Constraints are used to construct an intensional semantics of categorical variant types.",
    "oneOf": [
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
       },
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
       },
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
-      },
-      {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
       }
    ]
 }
