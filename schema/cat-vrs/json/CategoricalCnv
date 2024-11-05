@@ -7,10 +7,46 @@
    "description": "A representation of the constraints for matching knowledge about CNVs.",
    "allOf": [
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CategoricalCnvProperties"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
       },
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
+         "properties": {
+            "constraints": {
+               "allOf": [
+                  {
+                     "contains": {
+                        "allOf": [
+                           {
+                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+                           },
+                           {
+                              "type": "object",
+                              "properties": {
+                                 "relations": {
+                                    "contains": {
+                                       "const": "liftover_to"
+                                    }
+                                 }
+                              }
+                           }
+                        ]
+                     }
+                  },
+                  {
+                     "contains": {
+                        "anyOf": [
+                           {
+                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                           },
+                           {
+                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+                           }
+                        ]
+                     }
+                  }
+               ]
+            }
+         }
       }
    ]
 }

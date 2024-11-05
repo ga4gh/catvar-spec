@@ -16,7 +16,7 @@ $defs:
 
   CategoricalVariant:
     type: object
-    inherits: gks-core:DomainEntity
+    inherits: gks-core:Entity
     maturity: draft
     description: >-
       A representation of a categorically-defined domain for variation, in which individual
@@ -42,6 +42,14 @@ $defs:
         ordered: false
         items:
           $ref: "#/$defs/Constraint"
+      mappings:
+        type: array
+        ordered: false
+        items:
+          $ref: "/ga4gh/schema/gks-core/1.x/json/ConceptMapping"
+        description: >-
+          A list of mappings to concepts in terminologies or code systems. Each mapping should
+          include a coding and a relation.
 
   # =============================================================================
   # Constraint Definitions
@@ -52,7 +60,8 @@ $defs:
     description: >-
       Constraints are used to construct an intensional semantics of categorical variant types.
     oneOf:
-      - $ref: "#/$defs/DefiningContextConstraint"
+      - $ref: "#/$defs/DefiningAlleleContext"
+      - $ref: "#/$defs/DefiningLocationContext"
       - $ref: "#/$defs/CopyCountConstraint"
       - $ref: "#/$defs/CopyChangeConstraint"
     heritableProperties:
@@ -61,23 +70,22 @@ $defs:
     heritableRequired:
       - type
 
-  DefiningContextConstraint:
+  DefiningAlleleContext:
     maturity: draft
     type: object
     inherits: Constraint
     description: >-
-      The location or location-state, congruent with other reference sequences,
-      about which categorical variation is being described.
+      The defining allele and its associated relationships that are congruent
+      with member variants.
     properties:
       type:
         extends: type
-        const: DefiningContextConstraint
-        default: DefiningContextConstraint
-        description: 'MUST be "DefiningContextConstraint"'
-      definingContext:
+        const: DefiningAlleleContext
+        default: DefiningAlleleContext
+        description: 'MUST be "DefiningAlleleContext"'
+      allele:
         oneOf:
-          - $ref: /ga4gh/schema/vrs/2.x/json/Variation
-          - $ref: /ga4gh/schema/vrs/2.x/json/Location
+          - $ref: /ga4gh/schema/vrs/2.x/json/Allele
           - $ref: /ga4gh/schema/gks-core/1.x/json/IRI
       relations:
         type: array
@@ -85,17 +93,68 @@ $defs:
         items:
           type: string
           enum:
-            - sequence_liftover
-            - transcript_projection
-            - codon_translation
+            - translates_from
+            - translates_from_reading_frame
+            - liftover_to
+            - transcribes_to
+            - translates_to
+            - translates_through
         description: >-
-          Defined relationships between members of the categorical variant and the defining context.
+          Defined relationships from which members relate to the defining context.
           ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
           human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
           refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
           refers to variants or locations that translate from the codon(s) represented by the defined concept.
     required:
-      - definingContext
+      - allele
+
+  DefiningLocationContext:
+    maturity: draft
+    type: object
+    inherits: Constraint
+    description: >-
+      The defining location and its associated relationships that are congruent
+      with member locations.
+    properties:
+      type:
+        extends: type
+        const: DefiningLocationContext
+        default: DefiningLocationContext
+        description: 'MUST be "DefiningLocationContext"'
+      location:
+        oneOf:
+          - $ref: /ga4gh/schema/vrs/2.x/json/SequenceLocation
+          - $ref: /ga4gh/schema/gks-core/1.x/json/IRI
+      relations:
+        type: array
+        ordered: false
+        items:
+          type: string
+          enum:
+            - translates_from
+            - translates_from_reading_frame
+            - liftover_to
+            - transcribes_to
+            - translates_to
+            - translates_through
+        description: >-
+          Defined relationships from which members relate to the defining context.
+          ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
+          human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
+          refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
+          refers to variants or locations that translate from the codon(s) represented by the defined concept.
+      matchCharacteristic:
+        type: string
+        description: >-
+          A characteristic of the location that is used to match the defining location to member locations. 
+        enum:
+          - exact
+          - encompass
+          - within
+          - overlap
+    required:
+      - location
+      - matchCharacteristic
 
   CopyCountConstraint:
     maturity: draft

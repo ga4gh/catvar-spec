@@ -9,25 +9,6 @@ imports:
   cat-vrs: ./cat-vrs-source.yaml
 
 $defs:
-  ProteinSequenceConsequenceProperties:
-    type: object
-    maturity: draft
-    description: >-
-      Cat-VRS Constraints found in Protein Sequence Consequences.
-    properties:
-      constraints:
-        contains:
-          allOf:
-            - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
-            - type: object
-              properties:
-                relations:
-                  contains:
-                    const: codon_translation
-                  maxContains: 1
-    required: 
-      - constraints
-
   ProteinSequenceConsequence:
     description: >-
       A change that occurs in a protein sequence as a result of genomic changes. Due to the degenerate nature
@@ -36,31 +17,21 @@ $defs:
       `Allele <https://vrs.ga4gh.org/en/2.x/concepts/MolecularVariation/Allele.html#>`_
       that is representative of a collection of congruent Protein Alleles that share the same altered codon(s).
     allOf:
-      - $ref: "#/$defs/ProteinSequenceConsequenceProperties"
       - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
-
-  CanonicalAlleleProperties:
-    type: object
-    maturity: draft
-    description: >-
-      Cat-VRS Constraints found in Canonical Alleles.
-    properties:
-      constraints:
-        contains:
-          allOf:
-            - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
-            - type: object
-              properties:
-                relations:
-                  allOf:
-                    - contains:
-                        const: sequence_liftover
-                    - contains:
-                        const: transcript_projection
-                  maxContains: 2
-    required: 
-      - constraints
-
+      - properties:
+          constraints:
+            contains:
+              allOf:
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
+                - type: object
+                  properties:
+                    relations:
+                      allOf:
+                        - contains:
+                            const: translates_from
+                        - contains:
+                            const: translates_from_reading_frame
+                      maxContains: 2
 
   CanonicalAllele:
     maturity: draft
@@ -70,37 +41,40 @@ $defs:
       change on different underlying reference sequences. Congruent representations of an Allele often exist
       across different genome assemblies and associated cDNA transcript representations.
     allOf:
-      - $ref: "#/$defs/CanonicalAlleleProperties"
       - $ref: "/ga4gh/schema/cat-vrs/1.x/core/CategoricalVariant"
-
-  CategoricalCnvProperties:
-    type: object
-    maturity: draft
-    description: >-
-      Cat-VRS Constraints found in CategoricalCnvs.
-    properties:
-      constraints:
-        allOf:
-          - contains:
+      - properties:
+          constraints:
+            contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningContextConstraint"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleContext"
                 - type: object
                   properties:
                     relations:
-                      contains:
-                        const: sequence_liftover
-          - contains:
-              anyOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
-    required: 
-      - constraints
-
+                      allOf:
+                        - contains:
+                            const: liftover_to
+                        - contains:
+                            const: transcribes_to
+                      maxContains: 2
 
   CategoricalCnv:
     maturity: draft
     description: >-
       A representation of the constraints for matching knowledge about CNVs.
     allOf:
-      - $ref: "#/$defs/CategoricalCnvProperties"
       - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
+      - properties:
+          constraints:
+            allOf:
+              - contains:
+                  allOf:
+                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+                    - type: object
+                      properties:
+                        relations:
+                          contains:
+                            const: liftover_to
+              - contains:
+                  anyOf:
+                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"

@@ -10,7 +10,7 @@ A representation of a categorically-defined domain for variation, in which indiv
 
 **Information Model**
 
-Some CategoricalVariant attributes are inherited from :ref:`gks-core:DomainEntity`.
+Some CategoricalVariant attributes are inherited from :ref:`gks-core:Entity`.
 
 .. list-table::
    :class: clean-wrap
@@ -42,10 +42,6 @@ Some CategoricalVariant attributes are inherited from :ref:`gks-core:DomainEntit
       - :ref:`Extension`
       - 0..m
       - A list of extensions to the Entity, that allow for capture of information not directly supported by elements defined in the model.
-   *  - mappings
-      - :ref:`ConceptMapping`
-      - 0..m
-      - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
    *  - type
       - string
       - 1..1
@@ -58,3 +54,7 @@ Some CategoricalVariant attributes are inherited from :ref:`gks-core:DomainEntit
       - :ref:`Constraint`
       - 0..m
       - 
+   *  - mappings
+      - :ref:`ConceptMapping`
+      - 0..m
+      - A list of mappings to concepts in terminologies or code systems. Each mapping should include a coding and a relation.
