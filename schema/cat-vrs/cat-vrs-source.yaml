@@ -17,10 +17,10 @@ $defs:
   CategoricalVariant:
     type: object
     inherits: gks-core:Entity
-    maturity: draft
+    maturity: trial use
     description: >-
       A representation of a categorically-defined domain for variation, in which individual
-      contextual variation instances may be members of the domain.
+      Constraintual variation instances may be members of the domain.
     properties:
       type:
         extends: type
@@ -31,7 +31,7 @@ $defs:
         type: array
         ordered: false
         description: >-
-          A non-exhaustive list of VRS variation contexts that satisfy the constraints of
+          A non-exhaustive list of VRS variation Constraints that satisfy the constraints of
           this categorical variant.
         items:
           oneOf:
@@ -56,22 +56,21 @@ $defs:
   # =============================================================================
 
   Constraint:
-    maturity: draft
+    maturity: trial use
     description: >-
       Constraints are used to construct an intensional semantics of categorical variant types.
     oneOf:
-      - $ref: "#/$defs/DefiningAlleleContext"
-      - $ref: "#/$defs/DefiningLocationContext"
-      - $ref: "#/$defs/CopyCountConstraint"
-      - $ref: "#/$defs/CopyChangeConstraint"
+      - $ref: "#/$defs/DefiningAlleleConstraint"
+      - $ref: "#/$defs/DefiningLocationConstraint"
+      - $ref: "#/$defs/CopyConstraint"
     heritableProperties:
       type:
         type: string
     heritableRequired:
       - type
 
-  DefiningAlleleContext:
-    maturity: draft
+  DefiningAlleleConstraint:
+    maturity: trial use
     type: object
     inherits: Constraint
     description: >-
@@ -80,9 +79,9 @@ $defs:
     properties:
       type:
         extends: type
-        const: DefiningAlleleContext
-        default: DefiningAlleleContext
-        description: 'MUST be "DefiningAlleleContext"'
+        const: DefiningAlleleConstraint
+        default: DefiningAlleleConstraint
+        description: 'MUST be "DefiningAlleleConstraint"'
       allele:
         oneOf:
           - $ref: /ga4gh/schema/vrs/2.x/json/Allele
@@ -100,7 +99,7 @@ $defs:
             - translates_to
             - translates_through
         description: >-
-          Defined relationships from which members relate to the defining context.
+          Defined relationships from which members relate to the defining allele.
           ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
           human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
           refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
@@ -108,8 +107,8 @@ $defs:
     required:
       - allele
 
-  DefiningLocationContext:
-    maturity: draft
+  DefiningLocationConstraint:
+    maturity: trial use
     type: object
     inherits: Constraint
     description: >-
@@ -118,9 +117,9 @@ $defs:
     properties:
       type:
         extends: type
-        const: DefiningLocationContext
-        default: DefiningLocationContext
-        description: 'MUST be "DefiningLocationContext"'
+        const: DefiningLocationConstraint
+        default: DefiningLocationConstraint
+        description: 'MUST be "DefiningLocationConstraint"'
       location:
         oneOf:
           - $ref: /ga4gh/schema/vrs/2.x/json/SequenceLocation
@@ -138,7 +137,7 @@ $defs:
             - translates_to
             - translates_through
         description: >-
-          Defined relationships from which members relate to the defining context.
+          Defined relationships from which members relate to the defining location.
           ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
           human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
           refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
@@ -156,50 +155,37 @@ $defs:
       - location
       - matchCharacteristic
 
-  CopyCountConstraint:
-    maturity: draft
+  CopyConstraint:
+    maturity: trial use
     inherits: Constraint
     type: object
     description:
-      The absolute number of copies in a system
+      The quantity of copies or the type of copy change that a member of this
+      categorical variant must have. One and only one MUST be specified.
     properties:
       type:
         extends: type
-        const: CopyCountConstraint
-        default: CopyCountConstraint
-        description: 'MUST be "CopyCountConstraint"'
+        const: CopyConstraint
+        default: CopyConstraint
+        description: 'MUST be "CopyConstraint"'
       copies:
+        description: >-
+          The precise value or range of copies a member of this categorical
+          variant must have.
         oneOf:
-          - type: integer
-          - $ref: /ga4gh/schema/vrs/2.x/json/Range
-    required:
-      - copies
-
-  CopyChangeConstraint:
-    maturity: draft
-    inherits: Constraint
-    type: object
-    description:
-      A representation of copy number change
-    properties:
-      type:
-        extends: type
-        const: CopyChangeConstraint
-        default: CopyChangeConstraint
-        description: 'MUST be "CopyChangeConstraint"'
+        - type: integer
+        - $ref: /ga4gh/schema/vrs/2.x/json/Range
       copyChange:
-        $ref: /ga4gh/schema/gks-core/1.x/json/Coding
-        items:
-          properties:
-            code:
-              enum:
-                - EFO:0030069
-                - EFO:0020073
-                - EFO:0030068
-                - EFO:0030067
-                - EFO:0030064
-                - EFO:0030070
-                - EFO:0030071
-                - EFO:0030072
-    required:
-      - copyChange
+        description: >-
+          The type of copy change a member of this categorical variant must
+          have.
+        type: string
+        enum:
+          - EFO:0030069
+          - EFO:0020073
+          - EFO:0030068
+          - EFO:0030067
+          - EFO:0030064
+          - EFO:0030070
+          - EFO:0030071
+          - EFO:0030072

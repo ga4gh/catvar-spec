@@ -1,0 +1,45 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint",
+   "title": "CopyConstraint",
+   "type": "object",
+   "maturity": "trial use",
+   "description": "The quantity of copies or the type of copy change that a member of this categorical variant must have. One and only one MUST be specified.",
+   "properties": {
+      "type": {
+         "type": "string",
+         "const": "CopyConstraint",
+         "default": "CopyConstraint",
+         "description": "MUST be \"CopyConstraint\""
+      },
+      "copies": {
+         "description": "The precise value or range of copies a member of this categorical variant must have.",
+         "oneOf": [
+            {
+               "$ref": "/ga4gh/schema/vrs/2.x/json/Range"
+            },
+            {
+               "type": "integer"
+            }
+         ]
+      },
+      "copyChange": {
+         "description": "The type of copy change a member of this categorical variant must have.",
+         "type": "string",
+         "enum": [
+            "EFO:0030069",
+            "EFO:0020073",
+            "EFO:0030068",
+            "EFO:0030067",
+            "EFO:0030064",
+            "EFO:0030070",
+            "EFO:0030071",
+            "EFO:0030072"
+         ]
+      }
+   },
+   "required": [
+      "type"
+   ],
+   "additionalProperties": false
+}

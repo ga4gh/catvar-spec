@@ -17,7 +17,7 @@
                      "contains": {
                         "allOf": [
                            {
-                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext"
+                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
                            },
                            {
                               "type": "object",
@@ -36,10 +36,7 @@
                      "contains": {
                         "anyOf": [
                            {
-                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
-                           },
-                           {
-                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
                            }
                         ]
                      }

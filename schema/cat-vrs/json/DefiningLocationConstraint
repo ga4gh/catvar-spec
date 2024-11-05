@@ -1,16 +1,16 @@
 {
    "$schema": "https://json-schema.org/draft/2020-12/schema",
-   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationContext",
-   "title": "DefiningLocationContext",
+   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint",
+   "title": "DefiningLocationConstraint",
    "type": "object",
-   "maturity": "draft",
+   "maturity": "trial use",
    "description": "The defining location and its associated relationships that are congruent with member locations.",
    "properties": {
       "type": {
          "type": "string",
-         "const": "DefiningLocationContext",
-         "default": "DefiningLocationContext",
-         "description": "MUST be \"DefiningLocationContext\""
+         "const": "DefiningLocationConstraint",
+         "default": "DefiningLocationConstraint",
+         "description": "MUST be \"DefiningLocationConstraint\""
       },
       "location": {
          "oneOf": [
@@ -36,7 +36,7 @@
                "translates_through"
             ]
          },
-         "description": "Defined relationships from which members relate to the defining context. ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a human genome (e.g. \"GRCh37\" and \"GRCh38\") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection`` refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation`` refers to variants or locations that translate from the codon(s) represented by the defined concept."
+         "description": "Defined relationships from which members relate to the defining location. ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a human genome (e.g. \"GRCh37\" and \"GRCh38\") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection`` refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation`` refers to variants or locations that translate from the codon(s) represented by the defined concept."
       },
       "matchCharacteristic": {
          "type": "string",
