@@ -5,11 +5,11 @@
                     
 **Computational Definition**
 
-The quantity of copies or the type of copy change that a member of this categorical variant must have. One and only one MUST be specified.
+The exact or range of copies that members of this categorical variant must satisfy.
 
 **Information Model**
 
-Some CopyConstraint attributes are inherited from :ref:`Constraint`.
+Some CopyCountConstraint attributes are inherited from :ref:`Constraint`.
 
 .. list-table::
    :class: clean-wrap
@@ -24,12 +24,8 @@ Some CopyConstraint attributes are inherited from :ref:`Constraint`.
    *  - type
       - string
       - 1..1
-      - MUST be "CopyConstraint"
+      - MUST be "CopyCountConstraint"
    *  - copies
       - integer | :ref:`Range`
-      - 0..1
-      - The precise value or range of copies a member of this categorical variant must have.
-   *  - copyChange
-      - string
-      - 0..1
-      - The type of copy change a member of this categorical variant must have.
+      - 1..1
+      - The precise value or range of copies members of this categorical variant must satisfy.

@@ -12,6 +12,8 @@
       {
          "properties": {
             "constraints": {
+               "minItems": 1,
+               "maxItems": 1,
                "contains": {
                   "allOf": [
                      {

@@ -50,7 +50,7 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/gks-core/1.x/json/IRI"
+                  "$ref": "/ga4gh/schema/gks-core/1.x/json/iriReference"
                },
                {
                   "$ref": "/ga4gh/schema/vrs/2.x/json/Variation"
@@ -64,7 +64,10 @@
          "items": {
             "oneOf": [
                {
-                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
+                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+               },
+               {
+                  "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
                },
                {
                   "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"

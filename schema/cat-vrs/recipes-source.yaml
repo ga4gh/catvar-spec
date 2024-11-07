@@ -44,6 +44,8 @@ $defs:
       - $ref: "/ga4gh/schema/cat-vrs/1.x/core/CategoricalVariant"
       - properties:
           constraints:
+            minItems: 1
+            maxItems: 1
             contains:
               allOf:
                 - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
@@ -65,15 +67,23 @@ $defs:
       - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
       - properties:
           constraints:
-            allOf:
-              - contains:
-                  allOf:
-                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
-                    - type: object
-                      properties:
-                        relations:
-                          contains:
-                            const: liftover_to
-              - contains:
-                  anyOf:
-                    - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
+            description: >-
+              The constraints array must contain exactly two items:
+              a DefiningLocationConstraint and either a CopyChangeConstraint
+              or CopyCountConstraint.
+            minItems: 2
+            maxItems: 2
+            contains:
+              allOf:
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
+                - type: object
+                  properties:
+                    relations:
+                      contains:
+                        const: liftover_to
+            contains:
+              oneOf:
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+        required:
+          - constraints

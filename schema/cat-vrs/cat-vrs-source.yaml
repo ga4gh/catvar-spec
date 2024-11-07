@@ -36,7 +36,7 @@ $defs:
         items:
           oneOf:
             - $ref: /ga4gh/schema/vrs/2.x/json/Variation
-            - $ref: /ga4gh/schema/gks-core/1.x/gks-core/json/IRI
+            - $ref: /ga4gh/schema/gks-core/1.x/gks-core/json/iriReference
       constraints:
         type: array
         ordered: false
@@ -62,7 +62,8 @@ $defs:
     oneOf:
       - $ref: "#/$defs/DefiningAlleleConstraint"
       - $ref: "#/$defs/DefiningLocationConstraint"
-      - $ref: "#/$defs/CopyConstraint"
+      - $ref: "#/$defs/CopyCountConstraint"
+      - $ref: "#/$defs/CopyChangeConstraint"
     heritableProperties:
       type:
         type: string
@@ -85,7 +86,7 @@ $defs:
       allele:
         oneOf:
           - $ref: /ga4gh/schema/vrs/2.x/json/Allele
-          - $ref: /ga4gh/schema/gks-core/1.x/json/IRI
+          - $ref: /ga4gh/schema/gks-core/1.x/json/iriReference
       relations:
         type: array
         ordered: false
@@ -123,7 +124,7 @@ $defs:
       location:
         oneOf:
           - $ref: /ga4gh/schema/vrs/2.x/json/SequenceLocation
-          - $ref: /ga4gh/schema/gks-core/1.x/json/IRI
+          - $ref: /ga4gh/schema/gks-core/1.x/json/iriReference
       relations:
         type: array
         ordered: false
@@ -155,30 +156,46 @@ $defs:
       - location
       - matchCharacteristic
 
-  CopyConstraint:
+  CopyCountConstraint:
     maturity: trial use
     inherits: Constraint
     type: object
     description:
-      The quantity of copies or the type of copy change that a member of this
-      categorical variant must have. One and only one MUST be specified.
+      The exact or range of copies that members of this categorical
+      variant must satisfy.
     properties:
       type:
         extends: type
-        const: CopyConstraint
-        default: CopyConstraint
-        description: 'MUST be "CopyConstraint"'
+        const: CopyCountConstraint
+        default: CopyCountConstraint
+        description: 'MUST be "CopyCountConstraint"'
       copies:
         description: >-
-          The precise value or range of copies a member of this categorical
-          variant must have.
+          The precise value or range of copies members of this categorical
+          variant must satisfy.
         oneOf:
         - type: integer
         - $ref: /ga4gh/schema/vrs/2.x/json/Range
+    required:
+      - copies
+
+  CopyChangeConstraint:
+    maturity: trial use
+    inherits: Constraint
+    type: object
+    description: >-
+      The relative assessment of the change in copies that members of
+      this categorical variant satisfies.
+    properties:
+      type:
+        extends: type
+        const: CopyChangeConstraint
+        default: CopyChangeConstraint
+        description: 'MUST be "CopyChangeConstraint"'
       copyChange:
         description: >-
-          The type of copy change a member of this categorical variant must
-          have.
+          The relative assessment of the change in copies that members of
+          this categorical variant satisfies.
         type: string
         enum:
           - EFO:0030069
@@ -189,3 +206,5 @@ $defs:
           - EFO:0030070
           - EFO:0030071
           - EFO:0030072
+    required:
+      - copyChange

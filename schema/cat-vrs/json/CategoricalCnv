@@ -12,38 +12,24 @@
       {
          "properties": {
             "constraints": {
-               "allOf": [
-                  {
-                     "contains": {
-                        "allOf": [
-                           {
-                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
-                           },
-                           {
-                              "type": "object",
-                              "properties": {
-                                 "relations": {
-                                    "contains": {
-                                       "const": "liftover_to"
-                                    }
-                                 }
-                              }
-                           }
-                        ]
+               "description": "The constraints array must contain exactly two items: a DefiningLocationConstraint and either a CopyChangeConstraint or CopyCountConstraint.",
+               "minItems": 2,
+               "maxItems": 2,
+               "contains": {
+                  "oneOf": [
+                     {
+                        "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
+                     },
+                     {
+                        "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
                      }
-                  },
-                  {
-                     "contains": {
-                        "anyOf": [
-                           {
-                              "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
-                           }
-                        ]
-                     }
-                  }
-               ]
+                  ]
+               }
             }
-         }
+         },
+         "required": [
+            "constraints"
+         ]
       }
    ]
 }
