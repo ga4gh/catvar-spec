@@ -12,6 +12,7 @@ A change that occurs in a protein sequence as a result of genomic changes. Due t
    :widths: auto
 
    *  - Field
+      - Flags
       - Type
       - Limits
       - Description
