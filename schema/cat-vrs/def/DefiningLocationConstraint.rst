@@ -26,7 +26,7 @@ Some DefiningLocationConstraint attributes are inherited from :ref:`Constraint`.
       - 1..1
       - MUST be "DefiningLocationConstraint"
    *  - location
-      - :ref:`SequenceLocation` | :ref:`IRI`
+      - :ref:`SequenceLocation` | :ref:`iriReference`
       - 1..1
       - 
    *  - relations

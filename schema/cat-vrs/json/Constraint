@@ -7,7 +7,10 @@
    "description": "Constraints are used to construct an intensional semantics of categorical variant types.",
    "oneOf": [
       {
-         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyConstraint"
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+      },
+      {
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
       },
       {
          "$ref": "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"

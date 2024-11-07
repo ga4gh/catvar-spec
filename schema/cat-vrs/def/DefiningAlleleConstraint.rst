@@ -26,7 +26,7 @@ Some DefiningAlleleConstraint attributes are inherited from :ref:`Constraint`.
       - 1..1
       - MUST be "DefiningAlleleConstraint"
    *  - allele
-      - :ref:`Allele` | :ref:`IRI`
+      - :ref:`Allele` | :ref:`iriReference`
       - 1..1
       - 
    *  - relations

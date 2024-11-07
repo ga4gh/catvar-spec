@@ -46,7 +46,7 @@ Some CategoricalVariant attributes are inherited from :ref:`gks-core:Entity`.
       - 1..1
       - MUST be "CategoricalVariant"
    *  - members
-      - :ref:`Variation` | :ref:`IRI`
+      - :ref:`Variation` | :ref:`iriReference`
       - 0..m
       - A non-exhaustive list of VRS variation Constraints that satisfy the constraints of this categorical variant.
    *  - constraints
