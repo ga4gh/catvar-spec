@@ -43,4 +43,4 @@ Some DefiningLocationConstraint attributes are inherited from :ref:`Constraint`.
       - 
       - string
       - 1..1
-      - A characteristic of the location that is used to match the defining location to member locations. 
+      - A characteristic of the location that is used to match the defining location to member locations.
