@@ -40,7 +40,7 @@
       },
       "matchCharacteristic": {
          "type": "string",
-         "description": "A characteristic of the location that is used to match the defining location to member locations. ",
+         "description": "A characteristic of the location that is used to match the defining location to member locations.",
          "enum": [
             "exact",
             "encompass",
