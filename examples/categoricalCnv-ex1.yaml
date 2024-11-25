@@ -7,16 +7,17 @@ constraints:
   - type: DefiningLocationConstraint
     location:
       type: SequenceLocation
-      start: [null, 5945462]
-      end: [6053792, null]
+      start: 5945462
+      end: 6053792
       sequenceReference: 
         id: NC_000007.13
         type: SequenceReference
         refgetAccession: SQ.Ya6Rs7DHhDeg7YaOSg1EoNi3U_nQ9SvO
         residueAlphabet: na
     relations:
-      - liftover_to
-    matchCharacteristic: exact
+      - primaryCode: liftover_to
+    matchCharacteristic:
+      primaryCode: is_within
 extensions: 
   - name: vrs processing errors
     value: "NC_000007.14:g.(?_5905831)_(6014161_?)dup: char 26: expected one of '=', 'con', 'copy', 'del', 'dup', 'ins', or 'inv'"

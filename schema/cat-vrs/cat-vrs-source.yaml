@@ -91,20 +91,9 @@ $defs:
         type: array
         ordered: false
         items:
-          type: string
-          enum:
-            - translates_from
-            - translates_from_reading_frame
-            - liftover_to
-            - transcribes_to
-            - translates_to
-            - translates_through
+          $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
         description: >-
           Defined relationships from which members relate to the defining allele.
-          ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
-          human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
-          refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
-          refers to variants or locations that translate from the codon(s) represented by the defined concept.
     required:
       - allele
 
@@ -129,29 +118,13 @@ $defs:
         type: array
         ordered: false
         items:
-          type: string
-          enum:
-            - translates_from
-            - translates_from_reading_frame
-            - liftover_to
-            - transcribes_to
-            - translates_to
-            - translates_through
+          $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
         description: >-
           Defined relationships from which members relate to the defining location.
-          ``sequence_liftover`` refers to variants or locations that represent a congruent concept on a differing assembly of a
-          human genome (e.g. "GRCh37" and "GRCh38") or gene (e.g. Locus Reference Genomic) sequence. ``transcript_projection``
-          refers to variants or locations that occur on transcripts projected from the defined genomic concept. ``codon_translation``
-          refers to variants or locations that translate from the codon(s) represented by the defined concept.
       matchCharacteristic:
-        type: string
+        $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
         description: >-
           A characteristic of the location that is used to match the defining location to member locations.
-        enum:
-          - exact
-          - encompass
-          - within
-          - overlap
     required:
       - location
       - matchCharacteristic
@@ -180,7 +153,7 @@ $defs:
       - copies
 
   CopyChangeConstraint:
-    maturity: trial use
+    maturity: draft
     inherits: Constraint
     type: object
     description: >-
