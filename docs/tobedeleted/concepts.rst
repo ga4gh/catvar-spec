@@ -25,29 +25,26 @@ Contributions to the schema MUST be written in the YAML document.
 Categorical Variant Schemata
 @@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-THIS SECTION WILL GET UPDATEED WHEN I HAVE SCHEMATA READY
-PLEASE CHECK BACK IN THE FUTURE!
+.. add a class diagram here for cat-vrs
 
-.. image:: images/cat-vrs-transparent-bg.png
-    :width: 50%
-    :alt: An irresistably cute kittynaut beckoning you to enter the Cat-VRS.
-    :align: center
 
-.. include:: def-core/CategoricalVariant.rst
+
+
+.. include:: def/CategoricalVariant.rst
 
 .. _CanonicalAllele:
 
 Canonical Allele
 ################
 
-.. include:: def-profiles/CanonicalAllele.rst
+.. include:: def/CanonicalAllele.rst
 
 .. _CategoricalCnv:
 
 Categorical Copy Number
 #######################
 
-.. include:: def-profiles/CategoricalCnv.rst
+.. include:: def/CategoricalCnv.rst
 
 .. _ProteinSequenceConsequence:
 
