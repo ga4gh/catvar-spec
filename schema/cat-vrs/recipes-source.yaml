@@ -10,7 +10,7 @@ imports:
 
 $defs:
   ProteinSequenceConsequence:
-    maturity: draft
+    maturity: trial use
     description: >-
       A change that occurs in a protein sequence as a result of genomic changes. Due to the degenerate nature
       of the genetic code, there are often several genomic changes that can cause a protein sequence consequence.

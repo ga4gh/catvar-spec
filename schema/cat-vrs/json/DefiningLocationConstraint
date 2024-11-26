@@ -31,8 +31,8 @@
          "description": "Defined relationships from which members relate to the defining location."
       },
       "matchCharacteristic": {
-         "$ref": "/ga4gh/schema/gks-core/1.x/json/MappableConcept",
-         "description": "A characteristic of the location that is used to match the defining location to member locations."
+         "description": "A characteristic of the location that is used to match the defining location to member locations.",
+         "$ref": "/ga4gh/schema/gks-core/1.x/json/MappableConcept"
       }
    },
    "required": [

@@ -8,6 +8,10 @@ imports:
   gks-core: ../gks-core/gks-core-source.yaml
   vrs: ../vrs/vrs-source.yaml
 
+namespaces:
+  gks.core: /ga4gh/schema/gks-core/1.x/json/
+  vrs: /ga4gh/schema/vrs/2.x/json/
+
 $defs:
 
   # =============================================================================
@@ -35,8 +39,8 @@ $defs:
           this categorical variant.
         items:
           oneOf:
-            - $ref: /ga4gh/schema/vrs/2.x/json/Variation
-            - $ref: /ga4gh/schema/gks-core/1.x/gks-core/json/iriReference
+            - $refCurie: vrs:Variation
+            - $refCurie: gks.core:iriReference
       constraints:
         type: array
         ordered: false
@@ -46,7 +50,7 @@ $defs:
         type: array
         ordered: false
         items:
-          $ref: "/ga4gh/schema/gks-core/1.x/json/ConceptMapping"
+          $refCurie: gks.core:ConceptMapping
         description: >-
           A list of mappings to concepts in terminologies or code systems. Each mapping should
           include a coding and a relation.
@@ -85,13 +89,13 @@ $defs:
         description: 'MUST be "DefiningAlleleConstraint"'
       allele:
         oneOf:
-          - $ref: /ga4gh/schema/vrs/2.x/json/Allele
-          - $ref: /ga4gh/schema/gks-core/1.x/json/iriReference
+          - $refCurie: vrs:Allele
+          - $refCurie: gks.core:iriReference
       relations:
         type: array
         ordered: false
         items:
-          $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
+          $refCurie: gks.core:MappableConcept
         description: >-
           Defined relationships from which members relate to the defining allele.
     required:
@@ -112,17 +116,17 @@ $defs:
         description: 'MUST be "DefiningLocationConstraint"'
       location:
         oneOf:
-          - $ref: /ga4gh/schema/vrs/2.x/json/SequenceLocation
-          - $ref: /ga4gh/schema/gks-core/1.x/json/iriReference
+          - $refCurie: vrs:SequenceLocation
+          - $refCurie: gks.core:iriReference
       relations:
         type: array
         ordered: false
         items:
-          $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
+          $refCurie: gks.core:MappableConcept
         description: >-
           Defined relationships from which members relate to the defining location.
       matchCharacteristic:
-        $ref: /ga4gh/schema/gks-core/1.x/json/MappableConcept
+        $refCurie: gks.core:MappableConcept
         description: >-
           A characteristic of the location that is used to match the defining location to member locations.
     required:
@@ -148,7 +152,7 @@ $defs:
           variant must satisfy.
         oneOf:
         - type: integer
-        - $ref: /ga4gh/schema/vrs/2.x/json/Range
+        - $refCurie: vrs:Range
     required:
       - copies
 
