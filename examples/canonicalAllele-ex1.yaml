@@ -42,8 +42,8 @@ constraints:
         - name: clinvar hgvs type
           value: genomic, top-level    
     relations:
-      - liftover_to
-      - transcribes_to
+      - primaryCode: liftover_to
+      - primaryCode: transcribes_to
 mappings:
   - coding:
       code: CA915941124

@@ -26,12 +26,22 @@
                               "allOf": [
                                  {
                                     "contains": {
-                                       "const": "liftover_to"
+                                       "type": "object",
+                                       "properties": {
+                                          "primaryCode": {
+                                             "const": "liftover_to"
+                                          }
+                                       }
                                     }
                                  },
                                  {
                                     "contains": {
-                                       "const": "transcribes_to"
+                                       "type": "object",
+                                       "properties": {
+                                          "primaryCode": {
+                                             "const": "transcribes_to"
+                                          }
+                                       }
                                     }
                                  }
                               ],

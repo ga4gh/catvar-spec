@@ -3,7 +3,7 @@
    "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint",
    "title": "CopyChangeConstraint",
    "type": "object",
-   "maturity": "trial use",
+   "maturity": "draft",
    "description": "The relative assessment of the change in copies that members of this categorical variant satisfies.",
    "properties": {
       "type": {

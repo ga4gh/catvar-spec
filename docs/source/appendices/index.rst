@@ -10,7 +10,6 @@ Appendices
  
    design_decisions
    faq
-   glossary
 
 
 

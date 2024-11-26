@@ -10,6 +10,7 @@ imports:
 
 $defs:
   ProteinSequenceConsequence:
+    maturity: draft
     description: >-
       A change that occurs in a protein sequence as a result of genomic changes. Due to the degenerate nature
       of the genetic code, there are often several genomic changes that can cause a protein sequence consequence.
@@ -28,13 +29,14 @@ $defs:
                     relations:
                       allOf:
                         - contains:
-                            const: translates_from
-                        - contains:
-                            const: translates_from_reading_frame
-                      maxContains: 2
+                            type: object
+                            properties:
+                              primaryCode:
+                                const: translates_from
+                      maxContains: 1
 
   CanonicalAllele:
-    maturity: draft
+    maturity: trial use
     description: >-
       A canonical allele is defined by an `Allele <https://vrs.ga4gh.org/en/2.x/concepts/MolecularVariation/Allele.html#>`_
       that is representative of a collection of congruent Alleles, each of which depict the same nucleic acid
@@ -54,9 +56,15 @@ $defs:
                     relations:
                       allOf:
                         - contains:
-                            const: liftover_to
+                            type: object
+                            properties:
+                              primaryCode:
+                                const: liftover_to
                         - contains:
-                            const: transcribes_to
+                            type: object
+                            properties:
+                              primaryCode:
+                                const: transcribes_to
                       maxContains: 2
 
   CategoricalCnv:
