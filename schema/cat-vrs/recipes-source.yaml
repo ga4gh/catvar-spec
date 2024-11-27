@@ -18,12 +18,12 @@ $defs:
       `Allele <https://vrs.ga4gh.org/en/2.x/concepts/MolecularVariation/Allele.html#>`_
       that is representative of a collection of congruent Protein Alleles that share the same altered codon(s).
     allOf:
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
+      - $ref: CategoricalVariant
       - properties:
           constraints:
             contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
+                - $ref: DefiningAlleleConstraint
                 - type: object
                   properties:
                     relations:
@@ -43,14 +43,14 @@ $defs:
       change on different underlying reference sequences. Congruent representations of an Allele often exist
       across different genome assemblies and associated cDNA transcript representations.
     allOf:
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/core/CategoricalVariant"
+      - $ref: CategoricalVariant
       - properties:
           constraints:
             minItems: 1
             maxItems: 1
             contains:
               allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningAlleleConstraint"
+                - $ref: DefiningAlleleConstraint
                 - type: object
                   properties:
                     relations:
@@ -72,7 +72,7 @@ $defs:
     description: >-
       A representation of the constraints for matching knowledge about CNVs.
     allOf:
-      - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
+      - $ref: CategoricalVariant
       - properties:
           constraints:
             description: >-
@@ -81,17 +81,19 @@ $defs:
               or CopyCountConstraint.
             minItems: 2
             maxItems: 2
-            contains:
-              allOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/DefiningLocationConstraint"
-                - type: object
-                  properties:
-                    relations:
-                      contains:
-                        const: liftover_to
-            contains:
-              oneOf:
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyCountConstraint"
-                - $ref: "/ga4gh/schema/cat-vrs/1.x/json/CopyChangeConstraint"
+            allOf:
+              - contains:
+                  allOf:
+                    - $ref: DefiningLocationConstraint
+                    - properties:
+                        relations:
+                          contains:     
+                            properties:
+                              primaryCode:
+                                const: liftover_to
+              - contains:
+                  oneOf:
+                    - $ref: CopyCountConstraint
+                    - $ref: CopyChangeConstraint
         required:
           - constraints
