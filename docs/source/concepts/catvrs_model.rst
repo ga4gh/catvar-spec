@@ -6,7 +6,7 @@ Cat-VRS Model
 The following data types classes are used by Cat-VRS but maintained by either the VRS subgroup 
 or across the GKS Work Stream as core data classes.
 
-.. _categorical_variant:
+.. _CategoricalVariant:
 
 Categorical Variant
 ###################
@@ -27,28 +27,28 @@ other constraint classes.  A constraint is a rule or set of rules that
 must be satisfied for a CategoricalVariant to be considered valid.
 Constraint sub classes are only used in CategoricalVariant objects.
 
-.. _defining_allele_constraint:
+.. _DefiningAlleleConstraint:
 
 DefiningAlleleConstraint
 ########################
 
 .. include:: ../def/cat-vrs/DefiningAlleleConstraint.rst
 
-.. _defining_location_constraint:
+.. _DefiningLocationConstraint:
 
 DefiningLocationConstraint
 ##########################
 
 .. include:: ../def/cat-vrs/DefiningLocationConstraint.rst
 
-.. _copy_count_constraint:
+.. _CopyCountConstraint:
 
 CopyCountConstraint
 ###################
 
 .. include:: ../def/cat-vrs/CopyCountConstraint.rst
 
-.. _copy_change_constraint:
+.. _CopyChangeConstraint:
 
 CopyChangeConstraint
 ####################
