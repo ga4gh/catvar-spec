@@ -19,16 +19,16 @@ CanonicalAllele
 
 .. include:: ../def/cat-vrs/CanonicalAllele.rst
 
-.. _categorical_cnv:
-
-CategoricalCnv
-!!!!!!!!!!!!!!
-
-.. include:: ../def/cat-vrs/CategoricalCnv.rst
-
 .. _protein_sequence_consequence:
 
 ProteinSequenceConsequence
 !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. include:: ../def/cat-vrs/ProteinSequenceConsequence.rst
+
+.. _categorical_cnv:
+
+CategoricalCnv
+!!!!!!!!!!!!!!
+
+.. include:: ../def/cat-vrs/CategoricalCnv.rst
