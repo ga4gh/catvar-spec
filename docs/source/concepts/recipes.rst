@@ -12,23 +12,40 @@ to use the recipes that exist whenever possible, but are free to create
 new recipes as needed in a given implementation. New recipes should be
 shared with the community on the |catvrs_discussion| board.
 
-.. _canonical_allele:
+.. _CanonicalAllele:
 
 CanonicalAllele
 !!!!!!!!!!!!!!!
 
 .. include:: ../def/cat-vrs/CanonicalAllele.rst
 
-.. _protein_sequence_consequence:
+The CanonicalAllele is a :ref:`CategoricalVariant` with exactly one constraint:
+
+1. A :ref:`DefiningAlleleConstraint` with the `.relations` array containing both
+   `liftover_to` and `transcribes_to` codes. This constraint MUST refer to a genomic 
+   variant for the `allele`.
+
+.. _ProteinSequenceConsequence:
 
 ProteinSequenceConsequence
 !!!!!!!!!!!!!!!!!!!!!!!!!!
 
 .. include:: ../def/cat-vrs/ProteinSequenceConsequence.rst
 
-.. _categorical_cnv:
+The ProteinSequenceConsequence is a :ref:`CategoricalVariant` with exactly one constraint:
+
+1. A :ref:`DefiningAlleleConstraint` with the `.relations` array containing only a
+   `translates_from` code. This constraint MUST refer to a protein variant for the `allele`.
+
+.. _categorical-cnv:
 
 CategoricalCnv
 !!!!!!!!!!!!!!
 
 .. include:: ../def/cat-vrs/CategoricalCnv.rst
+
+The CategoricalCNV is a :ref:`CategoricalVariant` with exactly two constraints:
+
+1. A :ref:`DefiningLocationConstraint` with the `.relations` array containing only a
+   `liftover_to` code.
+2. A :ref:`CopyChangeConstraint` or `CopyCountConstraint`.
