@@ -156,6 +156,42 @@ $defs:
       - location
       - matchCharacteristic
 
+  GeneContextConstraint:
+    maturity: trial use
+    type: object
+    inherits: Constraint
+    description: >-
+      The functional unit of inheritance that members of this categorical variant are associated with.
+    properties:
+      type:
+        extends: type
+        const: GeneContextConstraint
+        default: GeneContextConstraint
+        description: 'MUST be "GeneContextConstraint"'
+      geneContext:
+        description: A gene identifier.
+          type: string
+      description:
+        description: A free-text description of the gene context.
+        type: string
+      relations:
+        type: array
+        ordered: false
+        items:
+          type: string
+          enum:
+            - translates_from
+            - translates_from_reading_frame
+            - liftover_to
+            - transcribes_to
+            - translates_to
+            - translates_through
+        description: >-
+          TBD
+    required:
+      - geneContext
+
+
   CopyCountConstraint:
     maturity: trial use
     inherits: Constraint
@@ -214,7 +250,7 @@ $defs:
     inherits: Constraint
     type: object
     description: >-
-        A categorical label of the function change that members of this categorical variant satisfies.
+        A relative assessment in the change of protein function that members of this categorical variant satisfies.
     properties:
       type:
         extends: type
