@@ -2,7 +2,9 @@
 
 [![Read the Docs](https://img.shields.io/readthedocs/vr-spec/1.1)](https://cat-vrs.readthedocs.io/en/latest/)
 
-The [GA4GH](https://www.ga4gh.org/) [Categorical Variation Representation Specification](https://www.ga4gh.org/product/categorical-variation-catvar/) provides a [A terminology and data model for describing categorical variation concepts](https://vrsatile.readthedocs.io/en/latest/catvars/index.html), built on top of the [GA4GH Variation Representation Specification (VRS)](https://vrs.ga4gh.org). Cat-VRS is the result of a collaboration among [contributors](CONTRIBUTORS.md) representing national information resource providers, major international public initiatives, and bioinformatics laboratories.
+**Cat-VRS 1.0.0 Trial Use Review November 2024 - join in [here](https://github.com/ga4gh/cat-vrs/discussions/86)**!
+
+The [GA4GH](https://www.ga4gh.org/) [Categorical Variation Representation Specification](https://www.ga4gh.org/product/categorical-variation-catvar/) provides a [terminology and data model for describing categorical variation concepts](https://vrsatile.readthedocs.io/en/latest/catvars/index.html), built on top of the [GA4GH Variation Representation Specification (VRS)](https://vrs.ga4gh.org). Cat-VRS is the result of a collaboration among [contributors](CONTRIBUTORS.md) representing national information resource providers, major international public initiatives, and bioinformatics laboratories.
 
 Cat-VRS is licensed under the [Apache License 2.0](LICENSE).
 
@@ -16,14 +18,16 @@ Categorical variant classes intended to be covered by this specification can be 
 
 ## Using the schema
 
-The schema is available in the [schema/](./schema/) directory, in both yaml and json versions. 
+The schema is available in the [schema/](./schema/) directory, in both yaml and json versions.
 It conforms to JSON Schema Draft 2020-12. For a list of
 libraries that support JSON schema, see
 [JSONSchema>Tools](https://json-schema.org/tools).
 
 ## Installing for development
 
-Fork the repo at <https://github.com/ga4gh/cat-vrs>.
+[Fork the GitHub repo](https://github.com/ga4gh/cat-vrs/fork).
+
+Then, clone your fork and initialize a development environment:
 
     git clone --recurse-submodules git@github.com:YOUR_GITHUB_ID/cat-vrs.git
     cd cat-vrs
