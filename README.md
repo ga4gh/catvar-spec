@@ -4,7 +4,7 @@
 
 **Cat-VRS 1.0.0 Trial Use Review November 2024 - join in [here](https://github.com/ga4gh/cat-vrs/discussions/86)**!
 
-The [GA4GH](https://www.ga4gh.org/) [Categorical Variation Representation Specification](https://www.ga4gh.org/product/categorical-variation-catvar/) provides a [terminology and data model for describing categorical variation concepts](https://vrsatile.readthedocs.io/en/latest/catvars/index.html), built on top of the [GA4GH Variation Representation Specification (VRS)](https://vrs.ga4gh.org). Cat-VRS is the result of a collaboration among [contributors](CONTRIBUTORS.md) representing national information resource providers, major international public initiatives, and bioinformatics laboratories.
+The [GA4GH](https://www.ga4gh.org/) [Categorical Variation Representation Specification](https://www.ga4gh.org/product/categorical-variation-catvar/) provides a [terminology and data model for describing categorical variation concepts](https://cat-vrs.readthedocs.io/en/latest/index.html), built on top of the [GA4GH Variation Representation Specification (VRS)](https://vrs.ga4gh.org). Cat-VRS is the result of a collaboration among [contributors](CONTRIBUTORS.md) representing national information resource providers, major international public initiatives, and bioinformatics laboratories.
 
 Cat-VRS is licensed under the [Apache License 2.0](LICENSE).
 
@@ -53,7 +53,7 @@ document, from the root directory:
 
 The Cat-VRS specification documentation is written in reStructuredText and located in
 [docs/source](docs/source/). Commits to this repo are built automatically at
-<https://vrsatile.readthedocs.io/en/latest/catvars/index.html#>.
+<https://cat-vrs.readthedocs.io/en/latest/index.html>.
 
 To build documentation locally, you must install [entr](https://eradman.com/entrproject/):
 
