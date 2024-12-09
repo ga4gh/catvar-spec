@@ -170,7 +170,7 @@ $defs:
         description: 'MUST be "GeneContextConstraint"'
       geneContext:
         description: A gene identifier.
-          type: string
+        type: string
       description:
         description: A free-text description of the gene context.
         type: string

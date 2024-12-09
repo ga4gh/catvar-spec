@@ -1,0 +1,35 @@
+{
+   "$schema": "https://json-schema.org/draft/2020-12/schema",
+   "$id": "https://w3id.org/ga4gh/schema/cat-vrs/1.x/json/FunctionVariant",
+   "title": "FunctionVariant",
+   "type": "object",
+   "maturity": "draft",
+   "description": "A representation of the constraints for matching knowledge about function variants; e.g., gain-of-function or loss-of-function.",
+   "allOf": [
+      {
+         "$ref": "/ga4gh/schema/cat-vrs/1.x/json/CategoricalVariant"
+      },
+      {
+         "properties": {
+            "constraints": {
+               "description": "The constraints array must contain exactly two items: a GeneContextConstraint and a FunctionConstraint.",
+               "minItems": 2,
+               "maxItems": 2,
+               "contains": {
+                  "allOf": [
+                     {
+                        "$ref": "/ga4gh/schema/cat-vrs/1.x/json/GeneContextConstraint"
+                     },
+                     {
+                        "$ref": "/ga4gh/schema/cat-vrs/1.x/json/FunctionConstraint"
+                     }
+                  ]
+               }
+            }
+         },
+         "required": [
+            "constraints"
+         ]
+      }
+   ]
+}
