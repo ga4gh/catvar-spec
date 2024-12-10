@@ -53,7 +53,7 @@ document, from the root directory:
 
 The Cat-VRS specification documentation is written in reStructuredText and located in
 [docs/source](docs/source/). Commits to this repo are built automatically at
-<https://cat-vrs.readthedocs.io/en/latest/index.html>.
+<https://cat-vrs.readthedocs.io/en/latest/index.html#>.
 
 To build documentation locally, you must install [entr](https://eradman.com/entrproject/):
 
