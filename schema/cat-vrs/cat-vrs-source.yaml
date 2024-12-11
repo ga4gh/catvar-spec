@@ -64,6 +64,8 @@ $defs:
       - $ref: "#/$defs/DefiningLocationConstraint"
       - $ref: "#/$defs/CopyCountConstraint"
       - $ref: "#/$defs/CopyChangeConstraint"
+      - $ref: "#/$defs/GeneContextConstraint"
+      - $ref: "#/$defs/FunctionConstraint"
     heritableProperties:
       type:
         type: string
@@ -157,7 +159,7 @@ $defs:
       - matchCharacteristic
 
   GeneContextConstraint:
-    maturity: trial use
+    maturity: draft
     type: object
     inherits: Constraint
     description: >-
