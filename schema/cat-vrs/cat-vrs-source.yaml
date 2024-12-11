@@ -218,7 +218,7 @@ $defs:
       - copies
 
   CopyChangeConstraint:
-    maturity: trial use
+    maturity: draft
     inherits: Constraint
     type: object
     description: >-
@@ -248,7 +248,7 @@ $defs:
       - copyChange
 
   FunctionConstraint:
-    maturity: trial use
+    maturity: draft
     inherits: Constraint
     type: object
     description: >-
