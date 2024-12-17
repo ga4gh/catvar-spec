@@ -23,6 +23,13 @@ members:
 alternativeLabels:
   - LEU858ARG
   - rs121434568
+  - NC_000007.14:g.55191822T>G
+  - NC_000007.13:g.55259515T>G
+  - NM_005228.5:c.2573T>G
+  - EGFR:p.Leu858Arg
+  - EGFR:p.L858R
+  - NM_005228.5(EGFR):c.2573T>G (p.Leu858Arg)
+  - NM_005228.5(EGFR):c.2573T>G (p.L858R)
 mappings:
   - coding:
       code: CA126713
@@ -62,3 +69,25 @@ extensions:
       code: SO:0001583
       system: http://www.sequenceontology.org/browser/current_release/term/
       label: missense_variant
+  - name: hgvs list
+    value:
+      - nucleotideExpression:
+          syntax: hgvs.g
+          value: NC_000007.14:g.55191822T>G
+        nucleotideType: genomic
+      - nucleotideExpression:
+          syntax: hgvs.g
+          value: NC_000007.13:g.55259515T>G
+        nucleotideType: genomic
+      - nucleotideExpression:
+          syntax: hgvs.c
+          value: NM_005228.5:c.2573T>G
+        nucleotideType: coding
+        maneSelect: true
+        proteinExpression:
+          syntax: hgvs.p
+          value: NP_005219.2:p.Leu858Arg
+        molecularConsequence:
+          code: SO:0001583
+          system: http://www.sequenceontology.org/browser/release_2.5.3/term/
+          label: missense_variant
